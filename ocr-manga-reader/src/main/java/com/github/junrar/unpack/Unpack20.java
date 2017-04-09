@@ -17,9 +17,6 @@
  */
 package com.github.junrar.unpack;
 
-import java.io.IOException;
-import java.util.Arrays;
-
 import com.github.junrar.exception.RarException;
 import com.github.junrar.unpack.decode.AudioVariables;
 import com.github.junrar.unpack.decode.BitDecode;
@@ -30,6 +27,9 @@ import com.github.junrar.unpack.decode.LitDecode;
 import com.github.junrar.unpack.decode.LowDistDecode;
 import com.github.junrar.unpack.decode.MultDecode;
 import com.github.junrar.unpack.decode.RepDecode;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 
 

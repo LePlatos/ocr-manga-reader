@@ -15,17 +15,17 @@
  ******************************************************************************/
 package net.robotmedia.acv.comic;
 
-import java.io.File;
-
-import net.robotmedia.acv.utils.FileUtils;
-
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+
+import net.robotmedia.acv.utils.FileUtils;
+
+import java.io.File;
 
 public class FileComic extends Comic
 {

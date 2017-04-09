@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2009 Robot Media SL
+ * Copyright 2017 Marlon Paulse
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package net.robotmedia.acv.ui.settings.tablet;
+package net.robotmedia.acv.ui.settings;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.preference.ListPreference;
+import android.util.AttributeSet;
 
-import com.cb4960.ocrmr.R;
+import com.ichi2.anki.api.AddContentApi;
 
-public class VisualSettingsFragment extends ExtendedPreferenceFragment
-{
+import java.util.Arrays;
 
-  @Override
-  public void onCreate(Bundle savedInstanceState)
-  {
-    super.onCreate(savedInstanceState);
-    addPreferencesFromResource(R.xml.visual_settings);
-  }
+public class AnkiDeckListPreference extends ListPreference {
+
+    public AnkiDeckListPreference(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        AddContentApi anki = new AddContentApi(context);
+        String[] decks = anki.getDeckList().values().toArray(new String[0]);
+        Arrays.sort(decks);
+        setEntries(decks);
+        setEntryValues(decks);
+        setDefaultValue(anki.getSelectedDeckName());
+    }
 
 }

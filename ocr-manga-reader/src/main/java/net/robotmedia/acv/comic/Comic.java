@@ -15,10 +15,23 @@
  ******************************************************************************/
 package net.robotmedia.acv.comic;
 
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.utils.FileUtils;
+
 import java.io.File;
 import java.io.FileOutputStream;
-import android.net.Uri;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -28,20 +41,6 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.utils.FileUtils;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Bitmap.CompressFormat;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Environment;
-import android.util.Log;
 
 public abstract class Comic
 {

@@ -15,8 +15,9 @@
  ******************************************************************************/
 package net.robotmedia.acv;
 
-import net.robotmedia.acv.logic.PreferencesController;
 import android.app.Application;
+
+import net.robotmedia.acv.logic.PreferencesController;
 
 public class ACVApplication extends Application
 {

@@ -15,41 +15,70 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.graphics.Point;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Environment;
+import android.preference.PreferenceManager;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.InputDevice;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.adapter.RecentListBaseAdapter;
+import net.robotmedia.acv.comic.Comic;
+import net.robotmedia.acv.logic.PreferencesController;
+import net.robotmedia.acv.logic.SetComicScreenAsTask;
+import net.robotmedia.acv.provider.HistoryManager;
+import net.robotmedia.acv.ui.settings.mobile.SettingsActivityMobile;
+import net.robotmedia.acv.ui.settings.tablet.SettingsActivityTablet;
+import net.robotmedia.acv.ui.widget.ComicView;
+import net.robotmedia.acv.ui.widget.ComicViewListener;
+import net.robotmedia.acv.ui.widget.OcrLayout;
+import net.robotmedia.acv.ui.widget.OcrLayout.NudgeDirection;
+import net.robotmedia.acv.utils.FileUtils;
+import net.robotmedia.acv.utils.MathUtils;
+import net.robotmedia.acv.utils.Reflect;
+
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
-import java.util.*;
-
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.adapter.RecentListBaseAdapter;
-import net.robotmedia.acv.comic.Comic;
-import net.robotmedia.acv.logic.*;
-import net.robotmedia.acv.provider.HistoryManager;
-import net.robotmedia.acv.ui.settings.mobile.SettingsActivityMobile;
-import net.robotmedia.acv.ui.settings.tablet.SettingsActivityTablet;
-import net.robotmedia.acv.ui.widget.*;
-import net.robotmedia.acv.ui.widget.OcrLayout.NudgeDirection;
-import net.robotmedia.acv.utils.*;
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.*;
-import android.content.SharedPreferences.Editor;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.graphics.Point;
-import android.net.Uri;
-import android.os.*;
-import android.preference.PreferenceManager;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.*;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.View.OnClickListener;
-import android.widget.*;
-import android.widget.AdapterView.OnItemClickListener;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.TreeMap;
 
 public class ComicViewerActivity extends ExtendedActivity implements OnGestureListener,
     GestureDetector.OnDoubleTapListener, ComicViewListener
@@ -265,8 +294,24 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
       }
     }
   }
-  
-  
+
+  /**
+   * @param requestCode
+   * @param permissions
+   * @param grantResults
+   * @author Marlon Paulse
+   */
+  @Override
+  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    if (requestCode == OcrLayout.ANKI_RW_PERM_REQ_CODE) {
+      if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        ocrLayout.performSendAction(getString(R.string.ocr_send_dialog_opt_ankidroid));
+      } else {
+        ocrLayout.showErrorDialog(R.string.ocr_send_anki_permission_denied);
+      }
+    }
+  }
+
   @Override
   public void onCreate(Bundle savedInstanceState)
   {

@@ -15,12 +15,14 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui;
 
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.logic.PreferencesController;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.logic.PreferencesController;
 
 public class ACVDialogFactory
 {

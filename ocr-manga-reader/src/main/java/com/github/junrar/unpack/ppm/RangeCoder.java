@@ -17,10 +17,10 @@
  */
 package com.github.junrar.unpack.ppm;
 
-import java.io.IOException;
-
 import com.github.junrar.exception.RarException;
 import com.github.junrar.unpack.Unpack;
+
+import java.io.IOException;
 
 
 /**

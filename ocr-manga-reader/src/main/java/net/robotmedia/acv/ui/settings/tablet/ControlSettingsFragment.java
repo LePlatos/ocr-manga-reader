@@ -15,16 +15,18 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.tablet;
 
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.logic.PreferencesController;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceManager;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.logic.PreferencesController;
 
 public class ControlSettingsFragment extends ExtendedPreferenceFragment
 {

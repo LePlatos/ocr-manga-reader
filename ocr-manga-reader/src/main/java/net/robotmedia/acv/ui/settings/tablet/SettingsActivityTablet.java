@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2009 Robot Media SL
+ * Copyright 2009-2017 Robot Media SL, Marlon Paulse
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,14 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.tablet;
 
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.preference.PreferenceActivity;
 
 import com.cb4960.ocrmr.R;
+import com.ichi2.anki.api.AddContentApi;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class SettingsActivityTablet extends PreferenceActivity
 {
@@ -32,6 +34,17 @@ public class SettingsActivityTablet extends PreferenceActivity
   public void onBuildHeaders(List<Header> target)
   {
     loadHeadersFromResource(R.xml.preference_headers, target);
+
+    if (AddContentApi.getAnkiDroidPackageName(this) == null) {
+      Iterator<Header> i = target.iterator();
+      while (i.hasNext()) {
+        if (i.next().getTitle(getResources()).equals(getString(R.string.category_advanced_title))) {
+          i.remove();
+          break;
+        }
+      }
+    }
+
     headers = target;
   }
 

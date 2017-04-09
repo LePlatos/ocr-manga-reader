@@ -16,13 +16,13 @@
  */
 package com.github.junrar.impl;
 
-import java.io.File;
-import java.io.IOException;
-
 import com.github.junrar.Archive;
 import com.github.junrar.Volume;
 import com.github.junrar.io.IReadOnlyAccess;
 import com.github.junrar.io.ReadOnlyAccessFile;
+
+import java.io.File;
+import java.io.IOException;
 
 
 /**

@@ -15,14 +15,18 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui;
 
-import java.util.HashSet;
-
-import net.robotmedia.acv.utils.BuildUtils;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.*;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+
+import net.robotmedia.acv.utils.BuildUtils;
+
+import java.util.HashSet;
 
 public class ExtendedActivity extends Activity
 {

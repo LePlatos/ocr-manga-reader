@@ -16,11 +16,12 @@
 
 package com.cb4960.dic;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /** Represents the ENAMDICT names dictionary.
  *  

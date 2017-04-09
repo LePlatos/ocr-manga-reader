@@ -15,7 +15,6 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.widget;
 
-import java.io.File;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -39,17 +38,21 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageSwitcher;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
+
 import com.cb4960.ocrmr.R;
+
 import net.robotmedia.acv.Constants;
 import net.robotmedia.acv.comic.Comic;
 import net.robotmedia.acv.logic.PreferencesController;
+
+import java.io.File;
 
 public class ComicView extends RelativeLayout implements OnCompletionListener, OnErrorListener
 {

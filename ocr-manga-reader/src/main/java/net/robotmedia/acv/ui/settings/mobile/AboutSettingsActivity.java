@@ -15,13 +15,15 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.mobile;
 
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.Constants;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.preference.Preference;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.Constants;
 
 public class AboutSettingsActivity extends ExtendedPreferenceActivity
 {

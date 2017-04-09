@@ -16,21 +16,21 @@
 
 package net.robotmedia.acv.ui.widget;
 
-import java.util.List;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.graphics.Rect;
+import android.util.AttributeSet;
+import android.view.View;
 
 import com.googlecode.leptonica.android.Pix;
 import com.googlecode.leptonica.android.WriteFile;
 
 import net.robotmedia.acv.Constants;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Paint.Style;
-import android.util.AttributeSet;
-import android.view.View;
+import java.util.List;
 
 /** View used to draw the capture box on. */
 public class OcrView extends View 

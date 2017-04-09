@@ -18,8 +18,6 @@
  */
 package com.github.junrar.unsigned;
 
-import com.github.junrar.crc.RarCRC;
-
 /**
  * DOCUMENT ME
  *

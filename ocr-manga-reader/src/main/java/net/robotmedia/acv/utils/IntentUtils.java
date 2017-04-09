@@ -15,14 +15,14 @@
  ******************************************************************************/
 package net.robotmedia.acv.utils;
 
-import java.util.List;
-
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+
+import java.util.List;
 
 public class IntentUtils
 {

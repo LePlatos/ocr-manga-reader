@@ -15,10 +15,12 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.mobile;
 
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.logic.PreferencesController;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.logic.PreferencesController;
 
 public class AdvancedSettingsActivity extends ExtendedPreferenceActivity
 {

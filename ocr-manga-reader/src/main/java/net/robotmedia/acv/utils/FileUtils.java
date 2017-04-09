@@ -15,14 +15,15 @@
  ******************************************************************************/
 package net.robotmedia.acv.utils;
 
+import android.graphics.Bitmap;
+
+import net.robotmedia.acv.Constants;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import android.graphics.Bitmap;
-import net.robotmedia.acv.Constants;
 
 public class FileUtils
 {

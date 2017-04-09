@@ -15,6 +15,17 @@
  ******************************************************************************/
 package net.robotmedia.acv.comic;
 
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.util.Log;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.utils.FileUtils;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,17 +36,6 @@ import java.util.Enumeration;
 import java.util.TreeMap;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.utils.FileUtils;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Bitmap.Config;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.util.Log;
 
 public class ZipComic extends Comic
 {

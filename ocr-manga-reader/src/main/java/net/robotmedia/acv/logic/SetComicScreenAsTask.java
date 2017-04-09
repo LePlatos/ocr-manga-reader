@@ -15,15 +15,17 @@
  ******************************************************************************/
 package net.robotmedia.acv.logic;
 
-import java.io.FileNotFoundException;
-
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.comic.Comic;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.comic.Comic;
+
+import java.io.FileNotFoundException;
 
 public class SetComicScreenAsTask extends AsyncTask<Integer, Object, String>
 {

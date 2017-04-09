@@ -15,13 +15,16 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.mobile;
 
-import java.util.HashSet;
-
-import com.cb4960.ocrmr.R;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.*;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+
+import com.cb4960.ocrmr.R;
+
+import java.util.HashSet;
 
 public abstract class ExtendedPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener
 {

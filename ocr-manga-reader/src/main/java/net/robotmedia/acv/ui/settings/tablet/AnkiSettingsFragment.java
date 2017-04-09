@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2009 Robot Media SL
+ * Copyright 2017 Marlon Paulse
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,44 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package net.robotmedia.acv.ui.settings;
+
+package net.robotmedia.acv.ui.settings.tablet;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceManager;
 
-import net.robotmedia.acv.provider.HistoryManager;
+import com.cb4960.ocrmr.R;
 
-public class CollectionSettingsHelper extends SettingsHelper
-{
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.logic.PreferencesController;
+import net.robotmedia.acv.ui.SDEpwingBrowerActivity;
+import net.robotmedia.acv.ui.SDTextBrowserActivity;
 
-  public final static String PREFERENCE_CLEAR_HISTORY = "clear_history";
+import java.util.Locale;
 
-
-  public CollectionSettingsHelper(Activity activity)
-  {
-    super(activity);
-  }
-
-
-  public void prepareClearHistory(Preference preference)
-  {
-    preference.setOnPreferenceClickListener(new OnPreferenceClickListener()
-    {
-
-      @Override
-      public boolean onPreferenceClick(Preference preference)
-      {
-        clearHistory();
-        return true;
-      }
-    });
-  }
+public class AnkiSettingsFragment extends ExtendedPreferenceFragment  {
 
 
-  protected void clearHistory()
-  {
-    HistoryManager.getInstance(this.getActivity()).clear();
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    addPreferencesFromResource(R.xml.anki_settings);
   }
 
 }

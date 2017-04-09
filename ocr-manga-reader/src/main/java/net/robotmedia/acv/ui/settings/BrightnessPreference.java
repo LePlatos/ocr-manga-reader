@@ -15,17 +15,18 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings;
 
-import com.cb4960.ocrmr.R;
 import android.content.Context;
+import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.preference.DialogPreference;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+
+import com.cb4960.ocrmr.R;
 
 // TODO: Reset value when dialog is dismissed
 

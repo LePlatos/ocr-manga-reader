@@ -15,7 +15,6 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.widget;
 
-import net.robotmedia.acv.Constants;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -32,14 +31,16 @@ import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
-import android.view.animation.Animation.AnimationListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Scroller;
+
+import net.robotmedia.acv.Constants;
 
 /**
  * @author hermespique

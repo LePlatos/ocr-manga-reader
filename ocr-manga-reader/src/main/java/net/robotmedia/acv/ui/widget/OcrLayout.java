@@ -16,6 +16,85 @@
 
 package net.robotmedia.acv.ui.widget;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Handler;
+import android.support.annotation.StringRes;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.util.Pair;
+import android.view.Display;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.WindowManager;
+import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.cb4960.dic.Dic;
+import com.cb4960.dic.DicEdict;
+import com.cb4960.dic.DicEpwing;
+import com.cb4960.dic.DicEpwingRaw;
+import com.cb4960.dic.DicKanji;
+import com.cb4960.dic.DicNames;
+import com.cb4960.dic.Entry;
+import com.cb4960.dic.Example;
+import com.cb4960.dic.FineTune;
+import com.cb4960.dic.Frequency;
+import com.cb4960.dic.UtilsCommon;
+import com.cb4960.dic.UtilsFormatting;
+import com.cb4960.dic.UtilsLang;
+import com.cb4960.dic.WordSet;
+import com.cb4960.ocrmr.R;
+import com.googlecode.leptonica.android.Binarize;
+import com.googlecode.leptonica.android.Clip;
+import com.googlecode.leptonica.android.Convert;
+import com.googlecode.leptonica.android.Convolve;
+import com.googlecode.leptonica.android.Enhance;
+import com.googlecode.leptonica.android.Pix;
+import com.googlecode.leptonica.android.ReadFile;
+import com.googlecode.leptonica.android.Scale;
+import com.googlecode.leptonica.android.Seedfill;
+import com.googlecode.tesseract.android.TessBaseAPI;
+import com.ichi2.anki.api.AddContentApi;
+import com.ichi2.anki.api.NoteInfo;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.logic.PreferencesController;
+import net.robotmedia.acv.ui.ComicViewerActivity;
+import net.robotmedia.acv.utils.BoundingTextRect;
+import net.robotmedia.acv.utils.FileUtils;
+import net.robotmedia.acv.utils.Furigana;
+import net.robotmedia.acv.utils.IntentUtils;
+import net.robotmedia.acv.utils.LeptUtils;
+import net.robotmedia.acv.utils.MathUtils;
+import net.robotmedia.acv.utils.ShellUtils;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,81 +111,10 @@ import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Stack;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import com.cb4960.dic.Dic;
-import com.cb4960.dic.DicEdict;
-import com.cb4960.dic.DicEpwing;
-import com.cb4960.dic.DicEpwingRaw;
-import com.cb4960.dic.DicKanji;
-import com.cb4960.dic.DicNames;
-import com.cb4960.dic.Entry;
-import com.cb4960.dic.Example;
-import com.cb4960.dic.FineTune;
-import com.cb4960.dic.Frequency;
-import com.cb4960.dic.UtilsCommon;
-import com.cb4960.dic.UtilsFormatting;
-import com.cb4960.dic.UtilsLang;
-import com.cb4960.dic.WordSet;
-import com.googlecode.leptonica.android.Binarize;
-import com.googlecode.leptonica.android.Clip;
-import com.googlecode.leptonica.android.Convert;
-import com.googlecode.leptonica.android.Convolve;
-import com.googlecode.leptonica.android.Enhance;
-import com.googlecode.leptonica.android.Pix;
-import com.googlecode.leptonica.android.ReadFile;
-import com.googlecode.leptonica.android.Scale;
-import com.googlecode.leptonica.android.Seedfill;
-import com.googlecode.tesseract.android.TessBaseAPI;
-
-
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.logic.PreferencesController;
-import net.robotmedia.acv.ui.ComicViewerActivity;
-import net.robotmedia.acv.utils.BoundingTextRect;
-import net.robotmedia.acv.utils.FileUtils;
-import net.robotmedia.acv.utils.Furigana;
-import net.robotmedia.acv.utils.IntentUtils;
-import net.robotmedia.acv.utils.LeptUtils;
-import net.robotmedia.acv.utils.MathUtils;
-import net.robotmedia.acv.utils.ShellUtils;
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.AssetManager;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.util.Pair;
-import android.view.Display;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.WindowManager;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 /** Container for all OCR related views. */
 public class OcrLayout extends RelativeLayout implements OnGestureListener
@@ -179,6 +187,8 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
   // Corner of capture box that nudge buttons will adjust
   final private int NUDGE_CORNER_TOP_LEFT = 0;
   final private int NUDGE_CORNER_BOTTOM_RIGHT = 1;
+
+  public static final int ANKI_RW_PERM_REQ_CODE = 4261;
          
   /** View that contains the comic image. */
   private ComicView comicView = null;
@@ -399,8 +409,8 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
   private boolean ocrSettingsShowFrequency = Constants.DEFAULT_OCR_SETTINGS_SHOW_FREQUENCY;
   private String ocrSettingsWordListSaveFilePath = Constants.DEFAULT_OCR_SETTINGS_WORD_LIST_SAVE_FILE_PATH;
   private String ocrSettingsWordListSaveFileFormat = Constants.DEFAULT_OCR_SETTINGS_WORD_LIST_SAVE_FILE_FORMAT;
-    
- 
+
+
   public OcrLayout(Context context)
   {
     super(context);
@@ -458,7 +468,6 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
     
     // Set the path to eplkup
     ContextWrapper cw = new ContextWrapper(this.context);
-    
     
     // Android 5.0 requires executables to be compiled with PIE (Position Independent Executable) support for security
     // reasons. However, PIE is not supported before Android 4.1, which is why we have 2 executables, one with
@@ -1469,6 +1478,25 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
           })
        .show();
   }
+
+  /** Show the OCR Assets Missing dialog. */
+  public void showErrorDialog(@StringRes int msgResId) {
+    showErrorDialog(context.getString(msgResId));
+  }
+
+  public void showErrorDialog(String msg) {
+    new AlertDialog.Builder(this.context)
+            .setIcon(android.R.drawable.ic_menu_info_details)
+            .setTitle(R.string.ocr_error_dialog_title)
+            .setMessage(msg)
+            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
+            {
+              public void onClick(DialogInterface dialog, int whichButton)
+              {
+              }
+            })
+            .show();
+  }
             
        
   /** Initialize the OCR engine. */
@@ -1919,7 +1947,7 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
         // Get the average intensity of the pixels around the click point
         if(this.textOrientation == TEXT_ORIENTATION_HORIZONTAL)
         {  
-          ave = Pix.averageInRect(tempOtsu, 
+          ave = Pix.averageInRect(tempOtsu,
               (int)(ptInCropRect.x * 0.9), 
               (int)(ptInCropRect.y - (tempOtsu.getHeight() * 0.95) / 2.0), 
               (int)(tempOtsu.getWidth() * 0.25), 
@@ -1927,7 +1955,7 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
         }
         else // Vertical or Auto
         {
-          ave = Pix.averageInRect(tempOtsu, 
+          ave = Pix.averageInRect(tempOtsu,
               (int)(ptInCropRect.x - (tempOtsu.getWidth() * 0.95) / 2.0), 
               (int)(ptInCropRect.y * 0.9), 
               (int)(tempOtsu.getWidth() * 0.95), 
@@ -2723,36 +2751,88 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
       this.context.startActivity(intent);
     }
   }
-  
-  
-  /** Send the provided entry to AnkiDroid. */
+
+
+  /**
+   * @param entry
+   * @author Marlon Paulse
+   */
   private void sendToAnkiDroid(Entry entry)
   {
-    if (IntentUtils.isIntentAvailable(context, "org.openintents.action.CREATE_FLASHCARD"))
-    {
+    if (AddContentApi.getAnkiDroidPackageName(context) != null) {
+      AddContentApi anki = new AddContentApi(context);
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+        && ContextCompat.checkSelfPermission(context, AddContentApi.READ_WRITE_PERMISSION)
+              != PackageManager.PERMISSION_GRANTED) {
+        ActivityCompat.requestPermissions(comicViewerActivity, new String[] { AddContentApi.READ_WRITE_PERMISSION }, ANKI_RW_PERM_REQ_CODE);
+        return;
+      }
+
+      String deckName =
+              preferencesController.getPreferences().getString(
+                      PreferencesController.PREFERENCE_ANKI_DECK,
+                      anki.getSelectedDeckName());
+      long deckId = -1;
+      Map<Long, String> decks = anki.getDeckList();
+      for (Map.Entry<Long, String> deck : decks.entrySet()) {
+        if (deck.getValue().equals(deckName)) {
+          deckId = deck.getKey();
+          break;
+        }
+      }
+      if (deckId == -1) {
+        showErrorDialog(context.getString(R.string.ocr_send_anki_deck_not_found) + " " + deckName);
+        return;
+      }
+
+      long modelId = anki.getCurrentModelId();
+      String modelName =
+              preferencesController.getPreferences().getString(
+                      PreferencesController.PREFERENCE_ANKI_MODEL,
+                      anki.getModelName(modelId));
+      Map<Long, String> models = anki.getModelList(4); // expr + reading + definition + examples
+      for (Map.Entry<Long, String> model : models.entrySet()) {
+        if (model.getValue().equals(modelName)) {
+          modelId = model.getKey();
+          break;
+        }
+      }
+      if (modelId < 0) {
+        showErrorDialog(context.getString(R.string.ocr_send_anki_model_not_found) + " " + modelName);
+        return;
+      }
+
+      List<NoteInfo> dups = anki.findDuplicateNotes(modelId, entry.Expression);
+      if (dups.isEmpty()) {
+        anki.addNote(modelId, deckId, new String[]{entry.Expression, entry.Reading, entry.Definition, ""}, null);
+        Toast.makeText(context, R.string.ocr_send_anki_success, Toast.LENGTH_SHORT).show();
+      } else {
+        Toast.makeText(context, R.string.ocr_send_anki_card_already_exists, Toast.LENGTH_SHORT).show();
+      }
+    } else if (IntentUtils.isIntentAvailable(context, "org.openintents.action.CREATE_FLASHCARD")) {
       Intent intent = new Intent("org.openintents.action.CREATE_FLASHCARD");
-      
+
       // String, language code of the first side
       intent.putExtra("SOURCE_LANGUAGE", "ja");
-      
+
       //  String, language code of the second side
       intent.putExtra("TARGET_LANGUAGE", "en");
-      
+
       // Text of the first side
-      
+
       String sourceText = entry.Expression;
       String reading = entry.Reading;
-      
-      if(reading.length() > 0)
-      {
+
+      if (reading.length() > 0) {
         sourceText += " [" + reading + "]";
       }
-      
+
       intent.putExtra("SOURCE_TEXT", sourceText);
-      
+
       // Text of the second side
       intent.putExtra("TARGET_TEXT", entry.Definition);
-      
+
       this.context.startActivity(intent);
     }
   }

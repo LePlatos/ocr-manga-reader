@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2009 Robot Media SL
+ * Copyright 2017 Robot Media SL, Marlon Paulse
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,11 @@
  ******************************************************************************/
 package net.robotmedia.acv;
 
-import java.util.HashMap;
+import android.app.Activity;
 
 import com.cb4960.ocrmr.R;
-import android.app.Activity;
+
+import java.util.HashMap;
 
 public class Constants
 {
@@ -89,7 +90,8 @@ public class Constants
   public static final int DIALOG_LOAD_ERROR = 1;
   public static final int DIALOG_FLIP_CONTROLS = 2;
   public static final int DIALOG_PAGE_ERROR = 4;
-  
+
+
 
   // File extensions
   public static final String JPG_EXTENSION = "jpg";

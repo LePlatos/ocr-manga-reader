@@ -15,9 +15,11 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.tablet;
 
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.ui.settings.CollectionSettingsHelper;
 import android.os.Bundle;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.ui.settings.CollectionSettingsHelper;
 
 public class StorageSettingsFragment extends ExtendedPreferenceFragment
 {

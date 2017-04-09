@@ -1,12 +1,15 @@
 package net.robotmedia.acv.adapter;
 
-import java.util.ArrayList;
-
-import com.cb4960.ocrmr.R;
 import android.content.Context;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.cb4960.ocrmr.R;
+
+import java.util.ArrayList;
 
 public abstract class ACVListAdapter<T> extends BaseAdapter
 {

@@ -15,15 +15,13 @@
  ******************************************************************************/
 package net.robotmedia.acv.comic;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
 
 import com.github.junrar.Archive;
 import com.github.junrar.rarfile.FileHeader;
@@ -31,11 +29,12 @@ import com.github.junrar.unpack.decode.Compress;
 
 import net.robotmedia.acv.utils.FileUtils;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Bitmap.Config;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeMap;
 
 public class RarComic extends Comic
 {

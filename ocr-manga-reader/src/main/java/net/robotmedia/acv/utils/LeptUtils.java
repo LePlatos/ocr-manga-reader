@@ -18,7 +18,6 @@ package net.robotmedia.acv.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Point;
-import android.graphics.Rect;
 
 import com.googlecode.leptonica.android.Pix;
 import com.googlecode.leptonica.android.WriteFile;

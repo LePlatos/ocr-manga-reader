@@ -16,10 +16,10 @@
 
 package net.robotmedia.acv.utils;
 
+import com.googlecode.leptonica.android.Pix;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.googlecode.leptonica.android.Pix;
 
 public class Furigana
 {

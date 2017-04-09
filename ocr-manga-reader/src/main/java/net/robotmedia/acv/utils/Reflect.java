@@ -15,10 +15,10 @@
  ******************************************************************************/
 package net.robotmedia.acv.utils;
 
+import android.view.MotionEvent;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
-import android.view.MotionEvent;
 
 public class Reflect
 {

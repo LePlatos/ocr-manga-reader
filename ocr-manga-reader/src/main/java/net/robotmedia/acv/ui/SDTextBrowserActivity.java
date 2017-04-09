@@ -1,21 +1,34 @@
 package net.robotmedia.acv.ui;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.*;
-
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.logic.PreferencesController;
-import net.robotmedia.acv.provider.HistoryManager;
-import net.robotmedia.acv.utils.FileUtils;
-import android.app.*;
-import android.content.*;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.TabActivity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.*;
-import android.widget.*;
-import android.widget.TabHost.OnTabChangeListener;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TabHost;
+import android.widget.TextView;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.logic.PreferencesController;
+import net.robotmedia.acv.utils.FileUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.TreeMap;
 
 // TODO: this is an ugly copy-paste of SDEpwingBrowserActivity
 /** File picker for .txt/.tsv files */

@@ -16,11 +16,12 @@
 
 package net.robotmedia.acv.ui.settings.mobile;
 
-import net.robotmedia.acv.logic.PreferencesController;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.logic.PreferencesController;
 
 public class OcrSettingsActivity extends ExtendedPreferenceActivity
 {

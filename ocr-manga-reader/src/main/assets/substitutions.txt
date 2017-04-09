@@ -1,4 +1,4 @@
-# This is the OCR Manga Reader OCR substitutions file.
+﻿# This is the OCR Manga Reader OCR substitutions file.
 ぁ=あ
 ぃ=い
 ぅ=う

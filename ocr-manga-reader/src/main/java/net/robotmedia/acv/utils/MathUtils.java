@@ -16,7 +16,6 @@
 package net.robotmedia.acv.utils;
 
 import android.content.Context;
-import android.util.FloatMath;
 
 public class MathUtils
 {
@@ -25,7 +24,7 @@ public class MathUtils
   {
     float deltaX = x1 - x2;
     float deltaY = y1 - y2;
-    return FloatMath.sqrt(deltaX * deltaX + deltaY * deltaY);
+    return (float) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
   }
 
 

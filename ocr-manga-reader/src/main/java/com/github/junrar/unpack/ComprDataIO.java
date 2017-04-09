@@ -17,11 +17,6 @@
  */
 package com.github.junrar.unpack;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import com.github.junrar.Archive;
 import com.github.junrar.UnrarCallback;
 import com.github.junrar.Volume;
@@ -30,6 +25,11 @@ import com.github.junrar.exception.RarException;
 import com.github.junrar.exception.RarException.RarExceptionType;
 import com.github.junrar.io.ReadOnlyAccessInputStream;
 import com.github.junrar.rarfile.FileHeader;
+
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 
 /**

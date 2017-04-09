@@ -17,12 +17,6 @@
  */
 package com.github.junrar.unpack;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Vector;
-
 import com.github.junrar.exception.RarException;
 import com.github.junrar.unpack.decode.Compress;
 import com.github.junrar.unpack.ppm.BlockTypes;
@@ -31,6 +25,12 @@ import com.github.junrar.unpack.ppm.SubAllocator;
 import com.github.junrar.unpack.vm.BitInput;
 import com.github.junrar.unpack.vm.RarVM;
 import com.github.junrar.unpack.vm.VMPreparedProgram;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Vector;
 
 
 /**

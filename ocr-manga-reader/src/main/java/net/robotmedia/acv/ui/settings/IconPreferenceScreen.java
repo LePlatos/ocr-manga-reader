@@ -31,7 +31,6 @@ package net.robotmedia.acv.ui.settings;
  * limitations under the License.
  */
 
-import com.cb4960.ocrmr.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -39,6 +38,8 @@ import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.cb4960.ocrmr.R;
 
 public class IconPreferenceScreen extends Preference
 {

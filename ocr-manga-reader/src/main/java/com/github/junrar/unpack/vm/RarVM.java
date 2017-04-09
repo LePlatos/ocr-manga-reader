@@ -17,11 +17,11 @@
  */
 package com.github.junrar.unpack.vm;
 
-import java.util.List;
-import java.util.Vector;
-
 import com.github.junrar.crc.RarCRC;
 import com.github.junrar.io.Raw;
+
+import java.util.List;
+import java.util.Vector;
 
 
 /**

@@ -16,9 +16,9 @@
  */
 package com.github.junrar;
 
-import java.io.IOException;
-
 import com.github.junrar.io.IReadOnlyAccess;
+
+import java.io.IOException;
 
 
 /**

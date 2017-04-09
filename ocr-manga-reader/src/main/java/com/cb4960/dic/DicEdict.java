@@ -16,14 +16,14 @@
 
 package com.cb4960.dic;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 
 /** Represents the EDICT J-E dictionary.
  *  http://ftp.monash.edu.au/pub/nihongo/00INDEX.html 

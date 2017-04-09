@@ -15,18 +15,18 @@
  ******************************************************************************/
 package net.robotmedia.acv.comic;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.TreeMap;
-
-import net.robotmedia.acv.utils.FileUtils;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+
+import net.robotmedia.acv.utils.FileUtils;
+
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class FolderComic extends Comic
 {

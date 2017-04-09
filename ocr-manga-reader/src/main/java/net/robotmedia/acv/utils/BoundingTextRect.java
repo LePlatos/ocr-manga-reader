@@ -16,15 +16,15 @@
 
 package net.robotmedia.acv.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import net.robotmedia.acv.utils.DirDist.D8;
-
 import android.graphics.Point;
 import android.graphics.Rect;
 
 import com.googlecode.leptonica.android.Pix;
+
+import net.robotmedia.acv.utils.DirDist.D8;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BoundingTextRect
 {

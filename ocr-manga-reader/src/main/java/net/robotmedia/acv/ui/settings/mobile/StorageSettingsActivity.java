@@ -15,10 +15,12 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.mobile;
 
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.ui.settings.CollectionSettingsHelper;
 import android.os.Bundle;
 import android.preference.Preference;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.ui.settings.CollectionSettingsHelper;
 
 public class StorageSettingsActivity extends ExtendedPreferenceActivity
 {

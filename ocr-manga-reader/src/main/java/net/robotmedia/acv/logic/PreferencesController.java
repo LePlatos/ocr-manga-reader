@@ -15,11 +15,6 @@
  ******************************************************************************/
 package net.robotmedia.acv.logic;
 
-import java.io.File;
-
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.comic.Comic;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -27,6 +22,11 @@ import android.content.res.Configuration;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.comic.Comic;
+
+import java.io.File;
 
 public class PreferencesController
 {
@@ -46,7 +46,9 @@ public class PreferencesController
   public static final String PREFERENCE_EPWING_MAX_LINES = "ocr_settings_epwing_max_def_lines";
   public static final String PREFERENCE_MISC_WORD_LIST_SAVE_FILE_PATH = "ocr_settings_misc_word_list_save_file_path";
   public static final String PREFERENCE_MISC_WORD_LIST_SAVE_FILE_FORMAT = "ocr_settings_misc_word_list_save_file_format";
-  
+  public static final String PREFERENCE_ANKI_DECK = "anki_deck";
+  public static final String PREFERENCE_ANKI_MODEL = "anki_model";
+
   private SharedPreferences preferences;
 
 

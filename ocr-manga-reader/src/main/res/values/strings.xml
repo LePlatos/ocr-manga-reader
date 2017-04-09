@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright 2009 Robot Media SL
   
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -91,7 +90,7 @@
     <string name="preference_edge_right_title">Right edge tap</string>
     <string name="preference_edge_top_title">Top edge tap</string>
     <string name="preference_edge_bottom_title">Bottom edge tap</string>
-    
+
     <string name="preference_back_title">Back</string>
     <string name="preference_volume_up_title">Volume up</string>
     <string name="preference_volume_down_title">Volume down</string>
@@ -133,14 +132,14 @@
     <string name="preference_max_image_height_title">Max image height (0=auto)</string>
     <string name="preference_max_image_height_dialog_title">Max image height</string>
     <string name="preference_max_image_height_dialog_message">Set the maximum image height. Taller images will be downscaled. Set to 0 to let system decide.</string>
-    
+
     <string name="preference_max_zoom_title">Max zoom factor</string>
     <string name="preference_max_zoom_dialog_title">Max zoom factor</string>
     <string name="preference_max_zoom_dialog_message">Set the maximum zoom factor.</string>
-    
+
     <string name="preference_low_memory_title">Low memory mode</string>
     <string name="preference_low_memory_summary">Disable preloading and transitions</string>
-    
+
     <string name="preference_zoom_step_title">Zoom increment</string>
     <string name="preference_zoom_step_dialog_title">Zoom increment</string>
     <string name="preference_zoom_step_dialog_message">Set amount to zoom by when a zoom action occurs (such as on a double-tap).</string>
@@ -148,7 +147,14 @@
     <string name="preference_scroll_step_title">Scroll amount</string>
     <string name="preference_scroll_step_dialog_title">Scroll amount</string>
     <string name="preference_scroll_step_dialog_message">Set amount to scroll for the scroll up/down action.</string>
-    
+
+    <!-- Anki preferences -->
+    <string name="category_anki_title">Anki</string>
+    <string name="preference_anki_deck_title">Deck</string>
+    <string name="preference_anki_deck_summary">Set the deck to which new Anki cards will be added.</string>
+    <string name="preference_anki_model_title">Note type</string>
+    <string name="preference_anki_model_summary">Set the type of note to use when creating Anki cards.</string>
+
     <!-- OCR Layout View -->
     <string name="btn_ocr_send">Send</string>
     <string name="btn_ocr_diag_top_left">↖</string>
@@ -172,8 +178,8 @@
     <string name="ocr_no_dict_entries">Not found in dictionary</string>
     <string name="ocr_load_assets_dialog_title">Copying OCR assets…</string>
     <string name="ocr_load_assets_dialog_msg">Please wait while OCR assets are copied to your SD card. This is only done once per app install/update.</string>
-    
-    
+
+
     <!-- OCR Menu -->
     <string name="menu_item_ocr_shown">Visibility: Shown</string>
     <string name="menu_item_ocr_hidden">Visibility: Hidden</string>
@@ -183,7 +189,7 @@
     <string name="menu_item_ocr_send">Send to…</string>
     <string name="menu_item_ocr_lookup_next">▶ Lookup next word</string>
     <string name="menu_item_ocr_lookup_prev">◀ Lookup previous word </string>
-   
+
     <!-- OCR Send Dialog -->
     <string name="ocr_send_dialog_title">Send to…</string>
     <string name="ocr_send_dialog_opt_clipboard">Clipboard</string>
@@ -198,26 +204,37 @@
     <string name="ocr_send_dialog_opt_yahoo_jj_web">Yahoo Jisho J-J (Web)</string>
     <string name="ocr_send_dialog_opt_google_web">Google (Web)</string>
     <string name="ocr_send_dialog_opt_google_images_web">Google Images (Web)</string>
-    
+
     <!--  OCR Engine Load Failed Dialog -->
     <string name="ocr_engine_load_failed_dialog_title">Error</string>
     <string name="ocr_engine_load_failed_dialog_msg">Failed to load the OCR engine.</string>
-    
+
     <!--  OCR Dictionary Load Failed Dialog -->
     <string name="ocr_dict_load_failed_dialog_title">Error</string>
     <string name="ocr_dict_load_failed_dialog_msg">Failed to load the OCR dictionary.</string>
-    
+
     <!--  OCR Assets Missing Dialog -->
     <string name="ocr_assets_missing_dialog_title">Error</string>
     <string name="ocr_assets_missing_dialog_msg">One or more OCR assets are missing.</string>
-    
+
     <!--  OCR Error Correction Dialog -->
     <string name="ocr_error_correction_dialog_title">Correct OCR Errors</string>
     <string name="ocr_error_correction_dialog_msg">You may manually correct any OCR errors in the box provided.</string>
-  
+
+    <!-- OCR error dialog -->
+    <string name="ocr_error_dialog_title">Error</string>
+
+    <!-- OCR anki messages -->
+    <string name="ocr_send_anki_deck_not_found">Anki deck not found:</string>
+    <string name="ocr_send_anki_model_not_found">Anki model not found:</string>
+    <string name="ocr_send_anki_permission_denied">Permission to add cards to Anki denied</string>
+    <string name="ocr_send_anki_success">Anki card added</string>
+    <string name="ocr_send_anki_card_already_exists">Anki card already exists</string>
+    <string name="ocr_send_anki_heading">Add Anki Card</string>
+
     <!-- OCR Preferences -->
     <string name="ocr_prefs_title">OCR</string>
-    
+
     <string name="ocr_prefs_color_group_title">Colors</string>
     <string name="ocr_prefs_color_group_summary">Choose custom colors</string>
     <string name="ocr_prefs_dict_background_color_title">Dictionary background color</string>
@@ -260,8 +277,8 @@
     <string name="ocr_prefs_word_highlight_color_summary">Choose the background color of the current word</string>
     <string name="ocr_prefs_known_word_color_title">Known/todo word marker color</string>
     <string name="ocr_prefs_known_word_color_summary">Choose the color to use for the known/todo word marker</string>
-    
-    
+
+
     <string name="ocr_prefs_layout_group_title">Layout</string>
     <string name="ocr_prefs_layout_group_summary">Configure layout and visibility of on-screen elements</string>
     <string name="ocr_prefs_show_bounding_boxes_title">Show bounding boxes</string>
@@ -282,23 +299,22 @@
     <string name="ocr_prefs_show_lookup_next_button_summary">Show the \'lookup next word\' button</string>
     <string name="ocr_prefs_show_lookup_prev_button_title">Show the previous word button</string>
     <string name="ocr_prefs_show_lookup_prev_button_summary">Show the \'lookup previous word\' button</string>
-    
-    
- 
+
+
     <string name="ocr_prefs_edict_group_title">EDICT Dictionary</string>
     <string name="ocr_prefs_edict_group_summary">Configure built-in EDICT dictionary</string>
 
     <string name="ocr_prefs_compact_definitions_title">Compact definitions</string>
     <string name="ocr_prefs_compact_definitions_summary">Remove linebreaks from definitions</string>
-    
-    
-    <string name="ocr_prefs_epwing_group_title">EPWING Dictionaries</string>  
-    <string name="ocr_prefs_epwing_group_summary">Configure user-provided EPWING dictionaries</string>  
-    
-    
-    <string name="ocr_prefs_epwing_path_group_title">Paths to EPWING dictionaries</string>  
-    <string name="ocr_prefs_epwing_path_group_summary">You may enter up to 4 EPWING dictionaries</string>  
-    
+
+
+    <string name="ocr_prefs_epwing_group_title">EPWING Dictionaries</string>
+    <string name="ocr_prefs_epwing_group_summary">Configure user-provided EPWING dictionaries</string>
+
+
+    <string name="ocr_prefs_epwing_path_group_title">Paths to EPWING dictionaries</string>
+    <string name="ocr_prefs_epwing_path_group_summary">You may enter up to 4 EPWING dictionaries</string>
+
     <string name="ocr_prefs_dics_epwing_path_1_title">Dictionary 1 \'CATALOGS\' file</string>
     <string name="ocr_prefs_dics_epwing_path_1_summary"></string>
     <string name="ocr_prefs_dics_epwing_path_2_title">Dictionary 2 \'CATALOGS\' file</string>
@@ -307,7 +323,7 @@
     <string name="ocr_prefs_dics_epwing_path_3_summary"></string>
     <string name="ocr_prefs_dics_epwing_path_4_title">Dictionary 4 \'CATALOGS\' file</string>
     <string name="ocr_prefs_dics_epwing_path_4_summary"></string>
-    
+
     <string name="ocr_prefs_dics_epwing_reset_1_title">Reset Dictionary 1</string>
     <string name="ocr_prefs_dics_epwing_reset_1_summary"></string>
     <string name="ocr_prefs_dics_epwing_reset_2_title">Reset Dictionary 2</string>
@@ -316,43 +332,43 @@
     <string name="ocr_prefs_dics_epwing_reset_3_summary"></string>
     <string name="ocr_prefs_dics_epwing_reset_4_title">Reset Dictionary 4</string>
     <string name="ocr_prefs_dics_epwing_reset_4_summary"></string>
-    
+
     <string name="ocr_prefs_epwing_compact_definitions_title">Compact definitions</string>
     <string name="ocr_prefs_epwing_compact_definitions_summary">Remove linebreaks from definitions</string>
-    
+
     <string name="ocr_prefs_dics_epwing_max_def_lines_title">Max lines to display</string>
     <string name="ocr_prefs_dics_epwing_max_def_lines_summary"></string>
-    
+
     <string name="ocr_prefs_dics_epwing_parse_title">Parse entries (for supported dictionaries)</string>
     <string name="ocr_prefs_dics_epwing_parse_summary">Perform additional processing to determine an entry\'s expression, reading, definitions and examples. Uncheck to show raw entries. Dictionaries that support parsing:  『研究社　新和英大辞典　第５版』、 『研究社　新英和・和英中辞典』、 『広辞苑第六版』、 『大辞泉』、 『三省堂　スーパー大辞林』、 『大辞林 第2版』、 『明鏡国語辞典』。</string>
-      
+
     <string name="ocr_prefs_epwing_parsed_category_title">Options for parsed entries</string>
-        
+
     <string name="ocr_prefs_dics_epwing_show_examples_title">Show example sentences</string>
     <string name="ocr_prefs_dics_epwing_show_examples_summary"></string>
-    
+
     <string name="ocr_prefs_dics_epwing_max_examples_title">Max examples to display</string>
     <string name="ocr_prefs_dics_epwing_max_examples_summary"></string>
-    
+
     <string name="ocr_prefs_dics_compact_examples_title">Compact examples</string>
     <string name="ocr_prefs_dics_compact_examples_summary">Remove linebreaks from examples</string>
-    
+
     <string name="ocr_prefs_dics_strip_examples_from_defs_title">Strip examples from the definition text</string>
-    <string name="ocr_prefs_dics_strip_examples_from_defs_summary">Applies to J-J dictionaries</string>   
-    
-    
+    <string name="ocr_prefs_dics_strip_examples_from_defs_summary">Applies to J-J dictionaries</string>
+
+
     <string name="ocr_prefs_misc_title">Misc</string>
     <string name="ocr_prefs_misc_summary">Configure other OCR settings</string>
 
     <string name="ocr_prefs_force_border_title">Force Border</string>
     <string name="ocr_prefs_force_border_summary">Force 2 pixel border around text before OCRing</string>
- 
+
     <string name="ocr_prefs_show_frequency_title">Show Frequency</string>
     <string name="ocr_prefs_show_frequency_summary">Show word frequency to the right of the reading</string>
-    
+
     <string name="ocr_prefs_send_action_title">Send Action</string>
     <string name="ocr_prefs_send_action_summary">Action to take when the OCR Send button is tapped</string>
-    
+
     <string name="ocr_prefs_word_list_save_file_category_title">Word List Save File</string>
     <string name="ocr_prefs_word_list_save_file_path_title">Word List Save File Path</string>
     <string name="ocr_prefs_word_list_save_file_path_summary"></string>
@@ -360,5 +376,5 @@
     <string name="ocr_prefs_word_list_save_file_reset_summary"></string>
     <string name="ocr_prefs_word_list_save_file_format_title">Word List Save File Format</string>
     <string name="ocr_prefs_word_list_save_file_format_summary">Format to use when saving entries</string>
-    
+
 </resources>

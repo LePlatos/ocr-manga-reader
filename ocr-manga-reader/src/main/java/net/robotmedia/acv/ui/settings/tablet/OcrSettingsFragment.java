@@ -16,23 +16,23 @@
 
 package net.robotmedia.acv.ui.settings.tablet;
 
-import java.util.Locale;
-
-import net.robotmedia.acv.Constants;
-import net.robotmedia.acv.logic.PreferencesController;
-import net.robotmedia.acv.ui.SDEpwingBrowerActivity;
-import net.robotmedia.acv.ui.SDTextBrowserActivity;
-
-import com.cb4960.ocrmr.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
-import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceManager;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.Constants;
+import net.robotmedia.acv.logic.PreferencesController;
+import net.robotmedia.acv.ui.SDEpwingBrowerActivity;
+import net.robotmedia.acv.ui.SDTextBrowserActivity;
+
+import java.util.Locale;
 
 public class OcrSettingsFragment extends ExtendedPreferenceFragment
 {

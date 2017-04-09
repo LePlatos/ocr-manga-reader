@@ -15,19 +15,29 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui;
 
-import com.cb4960.ocrmr.R;
-import net.robotmedia.acv.comic.Comic;
-import net.robotmedia.acv.logic.PreferencesController;
-import net.robotmedia.acv.utils.MathUtils;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.*;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Gallery;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.cb4960.ocrmr.R;
+
+import net.robotmedia.acv.comic.Comic;
+import net.robotmedia.acv.logic.PreferencesController;
+import net.robotmedia.acv.utils.MathUtils;
 
 public class BrowseActivity extends ExtendedActivity
 {

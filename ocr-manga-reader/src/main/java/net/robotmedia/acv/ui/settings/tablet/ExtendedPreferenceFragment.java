@@ -15,8 +15,6 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.tablet;
 
-import java.util.HashSet;
-
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -24,6 +22,8 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+
+import java.util.HashSet;
 
 @SuppressLint("NewApi")
 public class ExtendedPreferenceFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener

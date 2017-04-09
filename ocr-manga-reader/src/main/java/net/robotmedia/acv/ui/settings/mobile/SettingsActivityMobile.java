@@ -16,6 +16,7 @@
 package net.robotmedia.acv.ui.settings.mobile;
 
 import android.os.Bundle;
+
 import com.cb4960.ocrmr.R;
 
 public class SettingsActivityMobile extends ExtendedPreferenceActivity

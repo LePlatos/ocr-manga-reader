@@ -35,6 +35,11 @@
         android:fragment="net.robotmedia.acv.ui.settings.tablet.OcrSettingsFragment"
         android:icon="@drawable/ocr_settings_icon"
         android:title="@string/ocr_prefs_title" />
+
+    <header
+        android:fragment="net.robotmedia.acv.ui.settings.tablet.AnkiSettingsFragment"
+        android:icon="@drawable/ic_menu_star"
+        android:title="@string/category_anki_title" />
         
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.AdvancedSettingsFragment"

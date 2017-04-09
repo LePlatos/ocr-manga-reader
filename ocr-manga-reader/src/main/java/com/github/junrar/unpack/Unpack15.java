@@ -17,12 +17,12 @@
  */
 package com.github.junrar.unpack;
 
-import java.io.IOException;
-import java.util.Arrays;
-
 import com.github.junrar.exception.RarException;
 import com.github.junrar.unpack.decode.Compress;
 import com.github.junrar.unpack.vm.BitInput;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 
 /**

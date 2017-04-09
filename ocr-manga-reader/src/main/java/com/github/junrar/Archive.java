@@ -18,18 +18,6 @@
  */
 package com.github.junrar;
 
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.github.junrar.exception.RarException;
 import com.github.junrar.exception.RarException.RarExceptionType;
 import com.github.junrar.impl.FileVolumeManager;
@@ -51,6 +39,18 @@ import com.github.junrar.rarfile.UnixOwnersHeader;
 import com.github.junrar.rarfile.UnrarHeadertype;
 import com.github.junrar.unpack.ComprDataIO;
 import com.github.junrar.unpack.Unpack;
+
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**

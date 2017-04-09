@@ -15,12 +15,13 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.widget;
 
-import java.util.HashSet;
 import android.content.Context;
 import android.webkit.WebView;
 import android.widget.AbsoluteLayout;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import java.util.HashSet;
 
 @SuppressWarnings("deprecation")
 public class ComicFrame extends FrameLayout
