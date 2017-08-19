@@ -33,11 +33,14 @@
         <item>Derecha a izquierda</item>
     </string-array>
     <string-array name="action_labels">
+        <item>OCR</item>
         <item>Siguiente</item>
         <item>Anterior</item>
         <item>Zoom in</item>
         <item>Zoom out</item>
         <item>Rotar</item>
+        <item>Toggle 2-page layout</item>
+        <item>Take photo</item>
         <item>Desplazar arriba</item>
         <item>Desplazar abajo</item>
         <item>Desplazar izquierda</item>

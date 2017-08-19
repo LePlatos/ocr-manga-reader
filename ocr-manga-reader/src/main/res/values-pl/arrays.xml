@@ -32,11 +32,14 @@
         <item>Prawo-lewo</item>
     </string-array>
     <string-array name="action_labels">
+        <item>OCR</item>
         <item>Następny</item>
         <item>Poprzedni</item>
         <item>Powiększ</item>
         <item>Pomniejsz</item>
         <item>Obróć</item>
+        <item>Toggle 2-page layout</item>
+        <item>Take photo</item>
         <item>W górę</item>
         <item>W dół</item>
         <item>W lewo</item>
