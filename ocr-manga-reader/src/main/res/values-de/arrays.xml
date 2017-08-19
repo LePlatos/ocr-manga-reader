@@ -32,11 +32,14 @@
         <item>Right-to-left</item>
     </string-array>
     <string-array name="action_labels">
+        <item>OCR</item>
         <item>Next</item>
         <item>Previous</item>
         <item>Zoom in</item>
         <item>Zoom out</item>
         <item>Rotate</item>
+        <item>Toggle 2-page layout</item>
+        <item>Take photo</item>
         <item>Scroll up</item>
         <item>Scroll down</item>
         <item>Scroll left</item>
@@ -46,8 +49,8 @@
         <item>Fit width</item>
         <item>Fit height</item>
         <item>Fit screen</item>
-        <item>Open screen browser</item>
-        <item>Open SD browser</item>
+        <item>Open page browser</item>
+        <item>Open file browser</item>
         <item>Open settings</item>
         <item>Show menu</item>
         <item>Schließen</item>

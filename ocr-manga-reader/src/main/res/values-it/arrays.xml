@@ -32,11 +32,14 @@
         <item>Destra-a-sinistra</item>
     </string-array>
     <string-array name="action_labels">
+        <item>OCR</item>
         <item>Prossima</item>
         <item>Precedente</item>
         <item>Zoom +</item>
         <item>Zoom -</item>
         <item>Ruota</item>
+        <item>Toggle 2-page layout</item>
+        <item>Take photo</item>
         <item>Scorri su</item>
         <item>Scorri giù</item>
         <item>Scorri a sinistra</item>

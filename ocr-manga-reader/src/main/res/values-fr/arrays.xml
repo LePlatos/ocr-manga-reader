@@ -32,11 +32,14 @@
         <item>De droite à gauche</item>
     </string-array>
     <string-array name="action_labels">
+        <item>OCR</item>
         <item>Suivant</item>
         <item>Précédent</item>
         <item>Agrandir</item>
         <item>Réduire</item>
         <item>Tourner</item>
+        <item>Afficher en double page</item>
+        <item>Prendre une photo</item>
         <item>Défiler vers le haut</item>
         <item>Défiler vers le bas</item>
         <item>Défiler vers la gauche</item>

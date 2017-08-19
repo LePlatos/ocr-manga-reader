@@ -36,11 +36,13 @@
     <string name="item_fit_width_title">Ajuster la largeur</string>
     <string name="item_fit_height_title">Ajuster la hauteur</string>
     <string name="item_actual_size">Taille réelle</string>
+    <string name="item_toggle_page_layout_title">Afficher en double page</string>
     <string name="item_rotate_title">Tourner</string>
     <string name="item_rotate_shortcut">T</string>
     <string name="item_browse_title">Naviguer</string>
     <string name="item_browse_shortcut">N</string>
     <string name="item_open_title">Ouvrir</string>
+    <string name="item_take_photo">Prendre une photo…</string>
     <string name="item_open_shortcut">O</string>
     <string name="item_settings_title">Paramètres</string>
     <string name="item_settings_shortcut">P</string>
