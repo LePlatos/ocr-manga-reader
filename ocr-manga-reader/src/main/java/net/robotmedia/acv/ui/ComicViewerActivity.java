@@ -218,7 +218,7 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
       
       if (sensor)
       {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
       }
       else
       {
@@ -2074,7 +2074,7 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
       
       if (sensor)
       {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
       }
       else
       {
