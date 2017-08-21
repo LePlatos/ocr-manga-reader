@@ -704,10 +704,12 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
   @Override
   public boolean onSingleTapUp(MotionEvent e)
   {
+    Point tapPoint = new Point((int)e.getX(), (int)e.getY());
+    
     // If the user has decided to tap the text instead of drawing a box around it, perform a trigger capture
-    if((this.captureState == CaptureState.SET_BOTTOM_RIGHT || captureState == CaptureState.DRAG) && (this.captureTimer != null))
+    if((this.captureState == CaptureState.SET_BOTTOM_RIGHT) && (this.captureTimer != null))
     {
-      this.createTriggerCaptureBox(new Point((int)e.getX(), (int)e.getY()));
+      this.createTriggerCaptureBox(tapPoint);
       this.updateDicViewLocation();
       this.ocrView.setCaptureBox(this.captureBox);
       this.forceCaptureUpdate();
@@ -716,6 +718,15 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
       
       this.captureState = CaptureState.DRAG;
     } 
+    else if((this.captureState == CaptureState.DRAG) && (this.captureTimer != null))
+    {
+      DragRegion dragRegion = this.determineDragRegion(tapPoint.x, tapPoint.y);
+      
+      if(dragRegion == DragRegion.MIDDLE)
+      {
+        this.lookupNextWord();
+      }
+    }
     
     return true;
   }
@@ -2487,6 +2498,7 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
 
     // Add the options to the list
     optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_clipboard));
+    optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_clipboard_entire));
     optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_error_correction_editor));
     
     File wordListSaveFile = new File(this.ocrSettingsWordListSaveFilePath);
@@ -2515,6 +2527,7 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
       optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_sanseido_web));
       optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_yahoo_je_web));
       optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_yahoo_jj_web));
+      optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_google_translate_web));
       optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_google_web));
       optList.add(this.context.getResources().getString(R.string.ocr_send_dialog_opt_google_images_web));
     }
@@ -2584,7 +2597,11 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
       // Determine the option that was selected
       if(sendDestStr.equals(this.context.getResources().getString(R.string.ocr_send_dialog_opt_clipboard)))
       {
-        this.sendToClipboard(textToSend);
+        this.sendToClipboard(textToSend); // Highlighted word only
+      }
+      else if(sendDestStr.equals(this.context.getResources().getString(R.string.ocr_send_dialog_opt_clipboard_entire)))
+      {
+        this.sendToClipboard(this.lastOcrText); // Entire phrase
       }
       else if(sendDestStr.equals(this.context.getResources().getString(R.string.ocr_send_dialog_opt_error_correction_editor)))
       {
@@ -2620,6 +2637,10 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
       else if(sendDestStr.equals(this.context.getResources().getString(R.string.ocr_send_dialog_opt_yahoo_jj_web)))
       {
         this.sendToYahooJjWeb(textToSend);
+      }
+      else if(sendDestStr.equals(this.context.getResources().getString(R.string.ocr_send_dialog_opt_google_translate_web)))
+      {
+        this.sendToGoogleTranslate(this.lastOcrText);
       }
       else if(sendDestStr.equals(this.context.getResources().getString(R.string.ocr_send_dialog_opt_google_web)))
       {
@@ -2868,7 +2889,7 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
   private void sendToSanseidoWeb(String text)
   {
     Intent intent = new Intent("android.intent.action.VIEW", 
-        Uri.parse("http://www.sanseido.net/User/Dic/Index.aspx?TWords=" + text + "&st=0&DailyJJ=checkbox"));
+        Uri.parse("https://www.sanseido.biz/User/Dic/Index.aspx?TWords=" + text + "&st=0&DORDER=151617&DailyJJ=checkbox"));
     this.context.startActivity(intent);
   }
   
@@ -2887,6 +2908,15 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
   {
     Intent intent = new Intent("android.intent.action.VIEW", 
         Uri.parse("http://dic.search.yahoo.co.jp/dsearch?p=" + text + "&dic_id=jj&stype=prefix&b=1"));
+    this.context.startActivity(intent);
+  }
+  
+  /** Send the provided text to Google Translate. 
+   *  Note: Using the actual Translate API requires Internet permissions which I don't want to require. */
+  private void sendToGoogleTranslate(String text)
+  {
+    Intent intent = new Intent("android.intent.action.VIEW", 
+        Uri.parse("https://translate.google.com/#ja/en/" + text));
     this.context.startActivity(intent);
   }
   
@@ -3128,6 +3158,18 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
     return dicList;
   }
   
+  public Boolean isWordToSkipOver(String word)
+  {
+    return (word.length() == 1 && UtilsLang.containsKana(word.charAt(0)))
+         || word.equals("ー")
+         || word.equals("。") || word.equals("、")
+         || word.equals("？") || word.equals("?")
+         || word.equals("！") || word.equals("!")
+         || word.equals("/") || word.equals("…")
+         || word.equals("じゃ")
+         || word.equals("んだ");
+  }
+  
   
   /** After the text has been OCR'd, this may be invoked to advance to the next word. */
   public void lookupNextWord()
@@ -3144,6 +3186,14 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
         {
           this.lookupWordIdxStack.push(newIdx);
           this.updateDicViewText();
+          
+          if(this.comicViewerActivity.isExperimentalMode())
+          {
+            if(this.lastEntryList.size() == 0 || this.isWordToSkipOver(this.lastEntryList.get(0).Inflected))
+            {
+              this.lookupNextWord();
+            }
+          }
         }
       }
       else // Current word is not in the dictionary, advance one character
@@ -3154,6 +3204,14 @@ public class OcrLayout extends RelativeLayout implements OnGestureListener
         {
           this.lookupWordIdxStack.push(newIdx);
           this.updateDicViewText();
+          
+          if(this.comicViewerActivity.isExperimentalMode())
+          {
+            if(this.lastEntryList.size() == 0 || this.isWordToSkipOver(this.lastEntryList.get(0).Inflected))
+            {
+              this.lookupNextWord();
+            }
+          }
         }
       }
     }

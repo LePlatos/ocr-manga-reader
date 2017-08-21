@@ -109,9 +109,13 @@
     <string name="preference_show_number_summary">Briefly shows the screen number in a corner</string>
     <string name="preference_invisible_corners_title">Invisible corners</string>
     <string name="preference_invisible_corners_summary">Make corner buttons invisible</string>
+    <string name="preference_keep_screen_on_title">Keep Screen On</string>
+    <string name="preference_keep_screen_on_summary">Prevent screen from turning off</string>
     <string name="preference_brigthness_title">Brightness</string>
     <string name="preference_brigthness_summary">Adjust screen brightness</string>
     <string name="preference_default_brightness">Default brightness</string>
+    
+    
     <string name="category_memory_title">History</string>
     <string name="preference_clear_history_title">Clear history</string>
     <string name="preference_clear_history_summary">Clear all viewing history</string>
@@ -201,7 +205,8 @@
 
     <!-- OCR Send Dialog -->
     <string name="ocr_send_dialog_title">Send to…</string>
-    <string name="ocr_send_dialog_opt_clipboard">Clipboard</string>
+    <string name="ocr_send_dialog_opt_clipboard">Clipboard (Highlighted Word)</string>
+    <string name="ocr_send_dialog_opt_clipboard_entire">Clipboard (Entire Phrase)</string>
     <string name="ocr_send_dialog_opt_error_correction_editor">OCR Error Correction Editor</string>
     <string name="ocr_send_dialog_opt_word_list_save_file">Word List Save File</string>
     <string name="ocr_send_dialog_opt_aedict">Aedict</string>
@@ -211,6 +216,7 @@
     <string name="ocr_send_dialog_opt_sanseido_web">Sanseido J-J (Web)</string>
     <string name="ocr_send_dialog_opt_yahoo_je_web">Yahoo Jisho J-E (Web)</string>
     <string name="ocr_send_dialog_opt_yahoo_jj_web">Yahoo Jisho J-J (Web)</string>
+    <string name="ocr_send_dialog_opt_google_translate_web">Google Translate (Web)</string>
     <string name="ocr_send_dialog_opt_google_web">Google (Web)</string>
     <string name="ocr_send_dialog_opt_google_images_web">Google Images (Web)</string>
 
