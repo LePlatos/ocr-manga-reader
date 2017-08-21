@@ -24,6 +24,7 @@
         android:key="scale_mode"
         android:summary="@string/preference_scale_mode_summary"
         android:title="@string/preference_scale_mode_title" />
+    
     <ListPreference
         android:defaultValue="none"
         android:dialogTitle="@string/preference_transition_mode_title"
@@ -38,12 +39,19 @@
         android:key="show_number"
         android:summary="@string/preference_show_number_summary"
         android:title="@string/preference_show_number_title" />
+    
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="invisible_corners"
         android:summary="@string/preference_invisible_corners_summary"
         android:title="@string/preference_invisible_corners_title" />
-
+    
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="keep_screen_on"
+        android:summary="@string/preference_keep_screen_on_summary"
+        android:title="@string/preference_keep_screen_on_title" />
+    
     <net.robotmedia.acv.ui.settings.BrightnessPreference
         android:defaultValue="-1"
         android:key="brightness"

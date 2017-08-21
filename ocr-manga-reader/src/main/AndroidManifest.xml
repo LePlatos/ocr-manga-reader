@@ -16,8 +16,8 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cb4960.ocrmr"
-    android:versionCode="21"
-    android:versionName="6.1"
+    android:versionCode="22"
+    android:versionName="6.2"
     android:installLocation="auto"
     android:largeHeap="true">
 

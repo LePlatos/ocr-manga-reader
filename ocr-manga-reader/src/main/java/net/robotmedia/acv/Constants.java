@@ -79,6 +79,8 @@ public class Constants
 
   public static final String SHOW_NUMBER_KEY = "show_number";
   public static final String PREFERENCE_INVISIBLE_CORNERS = "invisible_corners";
+  public static final String KEEP_SCREEN_ON = "keep_screen_on";
+  
 
   public static final String COMICS_PATH_KEY = "comics_path";
 
@@ -262,7 +264,8 @@ public class Constants
   
   public static final String OCR_SETTING_SEND_ACTION_KEY = "send_button_action";
   public static final String OCR_SETTING_SEND_ACTION_SHOW_LIST_VALUE = "Show list (default)";
-  public static final String OCR_SETTING_SEND_ACTION_CLIPBOARD_VALUE = "Clipboard";
+  public static final String OCR_SETTING_SEND_ACTION_CLIPBOARD_VALUE = "Clipboard (Highlighted Word)";
+  public static final String OCR_SETTING_SEND_ACTION_CLIPBOARD_ENTIRE_VALUE = "Clipboard (Entire Phrase)";
   public static final String OCR_SETTING_SEND_ACTION_OCR_CORRECTION_EDITOR_VALUE = "OCR Error Correction Editor";
   public static final String OCR_SETTING_SEND_ACTION_WORD_LIST_SAVE_FILE_VALUE = "Word List Save File";
   public static final String OCR_SETTING_SEND_ACTION_AEDICT_VALUE = "Aedict";
@@ -272,6 +275,7 @@ public class Constants
   public static final String OCR_SETTING_SEND_ACTION_SANSEIDO_JJ_VALUE = "Sanseido J-J (Web)";
   public static final String OCR_SETTING_SEND_ACTION_YAHOO_JE_VALUE = "Yahoo Jisho J-E (Web)";
   public static final String OCR_SETTING_SEND_ACTION_YAHOO_JJ_VALUE = "Yahoo Jisho J-J (Web)";
+  public static final String OCR_SETTING_SEND_ACTION_GOOGLE_TRANSLATE_WEB_VALUE = "Google Translate (Web)";
   public static final String OCR_SETTING_SEND_ACTION_GOOGLE_WEB_VALUE = "Google (Web)";
   public static final String OCR_SETTING_SEND_ACTION_GOOGLE_IMAGES_VALUE = "Google Images (Web)";
   

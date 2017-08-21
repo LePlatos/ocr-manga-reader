@@ -99,7 +99,8 @@
     
     <string-array name="choose_send_menu_action_labels">
         <item>Show list (default)</item>
-        <item>Clipboard</item>
+        <item>Clipboard (Highlighted Word)</item>
+        <item>Clipboard (Entire Phrase)</item>
         <item>OCR Error Correction Editor</item>
         <item>Word List Save File</item>
         <item>Aedict</item>
@@ -109,13 +110,15 @@
         <item>Sanseido J-J (Web)</item>
         <item>Yahoo Jisho J-E (Web)</item>
         <item>Yahoo Jisho J-J (Web)</item>
+        <item>Google Translate (Web)</item>
         <item>Google (Web)</item>
         <item>Google Images (Web)</item>
     </string-array>
     
     <string-array name="choose_send_menu_action_values">
         <item>Show list (default)</item>
-        <item>Clipboard</item>
+        <item>Clipboard (Highlighted Word)</item>
+        <item>Clipboard (Entire Phrase)</item>
         <item>OCR Error Correction Editor</item>
         <item>Word List Save File</item>
         <item>Aedict</item>
@@ -125,6 +128,7 @@
         <item>Sanseido J-J (Web)</item>
         <item>Yahoo Jisho J-E (Web)</item>
         <item>Yahoo Jisho J-J (Web)</item>
+        <item>Google Translate (Web)</item>
         <item>Google (Web)</item>
         <item>Google Images (Web)</item>
     </string-array>

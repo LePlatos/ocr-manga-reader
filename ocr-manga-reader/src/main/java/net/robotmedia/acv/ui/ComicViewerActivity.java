@@ -272,7 +272,14 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
   {
     super.onCreate(savedInstanceState);
 
-    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    preferences = PreferenceManager.getDefaultSharedPreferences(this);
+    
+    boolean keepScreenOn = preferences.getBoolean(Constants.KEEP_SCREEN_ON, true);
+    
+    if(keepScreenOn)
+    {
+      getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
 
     if (!isHoneyComb())
     {
@@ -302,7 +309,6 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
     });
 
     mGestureDetector = new GestureDetector(this);
-    preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
     mButtonsContainer = findViewById(R.id.main_buttons_container);
     
@@ -2251,7 +2257,7 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
   
   
   /** If experimental mode is enabled */
-  private boolean isExperimentalMode()
+  public boolean isExperimentalMode()
   {
     float scrollIncrement = Float.parseFloat(preferences.getString("scroll_step",  Float.toString(Constants.DEFAULT_SCROLL_STEP)));
     return (Math.abs((scrollIncrement - (int)scrollIncrement) - 0.496) < 0.0001);
@@ -2391,6 +2397,10 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
     {
       this.ocrLayout.performSendAction(getResources().getString(R.string.ocr_send_dialog_opt_clipboard));
     }
+    else if(sendAction.equals(Constants.OCR_SETTING_SEND_ACTION_CLIPBOARD_ENTIRE_VALUE))
+    {
+      this.ocrLayout.performSendAction(getResources().getString(R.string.ocr_send_dialog_opt_clipboard_entire));
+    }
     else if(sendAction.equals(Constants.OCR_SETTING_SEND_ACTION_OCR_CORRECTION_EDITOR_VALUE))
     {
       this.ocrLayout.performSendAction(getResources().getString(R.string.ocr_send_dialog_opt_error_correction_editor));
@@ -2426,6 +2436,10 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
     else if(sendAction.equals(Constants.OCR_SETTING_SEND_ACTION_YAHOO_JJ_VALUE))
     {
       this.ocrLayout.performSendAction(getResources().getString(R.string.ocr_send_dialog_opt_yahoo_jj_web));
+    }
+    else if(sendAction.equals(Constants.OCR_SETTING_SEND_ACTION_GOOGLE_TRANSLATE_WEB_VALUE))
+    {
+      this.ocrLayout.performSendAction(getResources().getString(R.string.ocr_send_dialog_opt_google_translate_web));
     }
     else if(sendAction.equals(Constants.OCR_SETTING_SEND_ACTION_GOOGLE_WEB_VALUE))
     {
