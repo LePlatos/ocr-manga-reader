@@ -18,37 +18,37 @@
 
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.VisualSettingsFragment"
-        android:icon="@android:drawable/ic_menu_gallery"
+        android:icon="@drawable/ic_image_white_24dp"
         android:title="@string/category_visual_title" />
     
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.ControlSettingsFragment"
-        android:icon="@drawable/ic_settings_accessibility"
+        android:icon="@drawable/ic_touch_app_white_24dp"
         android:title="@string/category_controls_title" />
     
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.StorageSettingsFragment"
-        android:icon="@drawable/ic_settings_storage"
+        android:icon="@drawable/ic_sd_storage_white_24dp"
         android:title="@string/category_memory_title" />
     
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.OcrSettingsFragment"
-        android:icon="@drawable/ocr_settings_icon"
+        android:icon="@drawable/ic_ocr_white_24dp"
         android:title="@string/ocr_prefs_title" />
 
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.AnkiSettingsFragment"
-        android:icon="@drawable/ic_menu_star"
+        android:icon="@drawable/ic_star_white_24dp"
         android:title="@string/category_anki_title" />
         
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.AdvancedSettingsFragment"
-        android:icon="@drawable/ic_settings_privacy"
+        android:icon="@drawable/ic_code_white_24dp"
         android:title="@string/category_advanced_title" />
     
     <header
         android:fragment="net.robotmedia.acv.ui.settings.tablet.AboutSettingsFragment"
-        android:icon="@android:drawable/ic_menu_info_details"
+        android:icon="@drawable/ic_info_outline_white_24dp"
         android:title="@string/category_about_title" />
 
 </preference-headers>

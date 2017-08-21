@@ -20,7 +20,7 @@
 
     <net.robotmedia.acv.ui.settings.IconPreferenceScreen
         android:title="@string/category_visual_title"
-        settings:icon="@android:drawable/ic_menu_gallery" >
+        settings:icon="@drawable/ic_image_white_24dp" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="net.robotmedia.acv.ui.settings.mobile.VisualSettingsActivity"
@@ -29,7 +29,7 @@
     
     <net.robotmedia.acv.ui.settings.IconPreferenceScreen
         android:title="@string/category_controls_title"
-        settings:icon="@drawable/ic_settings_accessibility" >
+        settings:icon="@drawable/ic_touch_app_white_24dp" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="net.robotmedia.acv.ui.settings.mobile.ControlSettingsActivity"
@@ -38,7 +38,7 @@
     
     <net.robotmedia.acv.ui.settings.IconPreferenceScreen
         android:title="@string/category_memory_title"
-        settings:icon="@drawable/ic_settings_storage" >
+        settings:icon="@drawable/ic_sd_storage_white_24dp" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="net.robotmedia.acv.ui.settings.mobile.StorageSettingsActivity"
@@ -47,7 +47,7 @@
     
     <net.robotmedia.acv.ui.settings.IconPreferenceScreen
         android:title="@string/ocr_prefs_title"
-        settings:icon="@drawable/ocr_settings_icon" >
+        settings:icon="@drawable/ic_ocr_white_24dp" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="net.robotmedia.acv.ui.settings.mobile.OcrSettingsActivity"
@@ -56,7 +56,7 @@
     
     <net.robotmedia.acv.ui.settings.IconPreferenceScreen
         android:title="@string/category_advanced_title"
-        settings:icon="@drawable/ic_settings_privacy" >
+        settings:icon="@drawable/ic_code_white_24dp" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="net.robotmedia.acv.ui.settings.mobile.AdvancedSettingsActivity"
@@ -65,7 +65,7 @@
     
     <net.robotmedia.acv.ui.settings.IconPreferenceScreen
         android:title="@string/category_about_title"
-        settings:icon="@android:drawable/ic_menu_info_details" >
+        settings:icon="@drawable/ic_info_outline_white_24dp" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetClass="net.robotmedia.acv.ui.settings.mobile.AboutSettingsActivity"
