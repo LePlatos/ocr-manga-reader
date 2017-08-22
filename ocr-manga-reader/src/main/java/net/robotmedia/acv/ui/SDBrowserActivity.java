@@ -220,6 +220,7 @@ public class SDBrowserActivity extends TabActivity
     switch (item.getItemId()) {
         case R.id.item_sd_browser_storage:
             changeDirectory(Environment.getExternalStorageDirectory());
+            tabHost.setCurrentTab(0);
             return true;
         default:
             return super.onOptionsItemSelected(item);
