@@ -4,7 +4,11 @@ Customized OCR Manga Reader for Android
 Overview
 ---------
 
-A customized version of OCR Manga Reader 6.1 (http://ocrmangareaderforandroid.sourceforge.net/)
+> The master branch contains a few bugfixes, the material branch is
+> an attempt at making this software fit the design of current android apps.
+> See the [releases](../../releases) section on github for builds of the material branch.
+
+A customized version of OCR Manga Reader 6.2 (http://ocrmangareaderforandroid.sourceforge.net/)
 that allows for greater control in the manner in which Anki cards are created by 
 supporting card types (notes) with more than 2 fields (not just front and back).
 
