@@ -23,7 +23,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 
+import com.cb4960.ocrmr.R;
 import net.robotmedia.acv.utils.BuildUtils;
 
 import java.util.HashSet;
@@ -135,7 +137,7 @@ public class ExtendedActivity extends Activity
 
   protected void showActionBar()
   {
-    if (isHoneyComb())
+    if (isHoneyComb() && !isKitKat())
     {
       new ActionBarHelper().show();
     }
@@ -144,7 +146,7 @@ public class ExtendedActivity extends Activity
 
   protected void hideActionBar()
   {
-    if (isHoneyComb())
+    if (isHoneyComb() && !isKitKat())
     {
       new ActionBarHelper().hide();
     }
@@ -153,7 +155,7 @@ public class ExtendedActivity extends Activity
 
   protected void hideActionBarDelayed()
   {
-    if (isHoneyComb())
+    if (isHoneyComb() && !isKitKat())
     {
       mHandler.removeCallbacks(mHideActionBarRunnable);
       mHandler.postDelayed(mHideActionBarRunnable, 7000);
@@ -194,6 +196,28 @@ public class ExtendedActivity extends Activity
   {
     return BuildUtils.isKitKatOrLater();
   }
+
+  protected void setImmersiveMode(boolean b)
+  {
+    if (!isKitKat()) return;
+    if(b) {
+      getWindow().getDecorView().setSystemUiVisibility(
+          View.SYSTEM_UI_FLAG_LAYOUT_STABLE 
+        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        | View.SYSTEM_UI_FLAG_FULLSCREEN 
+        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    } else {
+      int flags = getWindow().getDecorView().getSystemUiVisibility();
+
+      flags &= (~View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+      flags &= (~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+      flags &= (~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+      flags &= (~View.SYSTEM_UI_FLAG_FULLSCREEN);
+      getWindow().getDecorView().setSystemUiVisibility(flags);
+    }
+  }
   
   protected class ActionBarHelper
   {
@@ -206,10 +230,9 @@ public class ExtendedActivity extends Activity
       if (actionBar != null)
       {
         actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowCustomEnabled(false);
       }
     }
 
@@ -227,9 +250,8 @@ public class ExtendedActivity extends Activity
     @SuppressLint("NewApi")
     public void show()
     {
-      // cb4960: Prevent action bar from appearing - not needed in a program like this
-      // if (getActionBar() != null)
-      // getActionBar().show();
+      if (getActionBar() != null)
+          getActionBar().show();
     }
 
 

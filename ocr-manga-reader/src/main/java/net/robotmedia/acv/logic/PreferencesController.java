@@ -209,8 +209,8 @@ public class PreferencesController
     editor.putString(Constants.BACK_KEY, Constants.ACTION_VALUE_NONE);
     editor.putString(Constants.INPUT_FLING_UP, Constants.ACTION_VALUE_NONE);
     editor.putString(Constants.INPUT_FLING_DOWN, Constants.ACTION_VALUE_NONE);
-    editor.putString(Constants.INPUT_CORNER_TOP_LEFT, Constants.ACTION_MENU);
-    editor.putString(Constants.INPUT_CORNER_TOP_RIGHT, Constants.ACTION_VALUE_OCR);
+    editor.putString(Constants.INPUT_CORNER_TOP_LEFT, Constants.ACTION_VALUE_OCR);
+    editor.putString(Constants.INPUT_CORNER_TOP_RIGHT, Constants.ACTION_MENU);
 
     editor.commit();
   }

@@ -15,8 +15,10 @@
  ******************************************************************************/
 package net.robotmedia.acv.ui.settings.tablet;
 
+import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.preference.PreferenceActivity;
+import android.view.MenuItem;
 
 import com.cb4960.ocrmr.R;
 import com.ichi2.anki.api.AddContentApi;
@@ -57,6 +59,17 @@ public class SettingsActivityTablet extends PreferenceActivity
     return bug22430Workaround();
   }
 
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    if (getActionBar() != null)
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+  }
+  @Override
+  public boolean onOptionsItemSelected (MenuItem item) {
+    onBackPressed();
+    return true;
+  }
 
   /**
    * @see <a
