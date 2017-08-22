@@ -18,8 +18,13 @@
 
     <!-- Base application theme is the default theme. -->
     <style name="Theme" parent="android:Theme.Material">
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:actionBarStyle">@style/Theme.ActionBarStyle</item>
+        <!-- Main theme colors -->
+        <!--   your app branding color for the app bar -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/accent</item>
     </style>
 
     <style name="Theme.text2b">
@@ -39,10 +44,6 @@
     <style name="Theme.tabWidget">
         <item name="android:gravity">fill_horizontal|center_vertical</item>
         <item name="android:divider">@android:drawable/divider_horizontal_bright</item>
-    </style>
-
-    <style name="Theme.ActionBarStyle" parent="android:style/Widget.Holo.ActionBar">
-        <item name="android:background">#a6000000</item>
     </style>
 
     <!-- List -->

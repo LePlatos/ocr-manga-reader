@@ -17,8 +17,8 @@
     package="com.cb4960.ocrmr"
     android:installLocation="auto"
     android:largeHeap="true"
-    android:versionCode="400001"
-    android:versionName="6.2.mp+p20170821">
+    android:versionCode="400002"
+    android:versionName="6.2.mp+p20170822">
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -43,12 +43,12 @@
     <application
         android:name="net.robotmedia.acv.ACVApplication"
         android:icon="@drawable/icon"
-        android:label="@string/app_name">
+        android:label="@string/app_name"
+        android:theme="@style/Theme">
         <activity
             android:name="net.robotmedia.acv.ui.ComicViewerActivity"
             android:label="@string/app_name"
-            android:screenOrientation="nosensor"
-            android:theme="@style/Theme">
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -282,28 +282,7 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
     {
       // Remove navigation bar when a comic is being shown.
       // https://developer.android.com/training/system-ui/immersive.html
-      if (isKitKat())
-      {
-        if(mScreen.getVisibility() == View.VISIBLE)
-        {
-          getWindow().getDecorView().setSystemUiVisibility(
-              View.SYSTEM_UI_FLAG_LAYOUT_STABLE 
-            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_FULLSCREEN 
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
-        else
-        {
-          int flags = getWindow().getDecorView().getSystemUiVisibility();
-          
-          flags &= (~View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-          flags &= (~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-          flags &= (~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-          getWindow().getDecorView().setSystemUiVisibility(flags);
-        }
-      }
+      setImmersiveMode(mScreen.getVisibility() == View.VISIBLE);
     }
   }
 
@@ -343,7 +322,10 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
       requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
     
-    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    if (!isKitKat())
+    {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
     
     setContentView(R.layout.main);
 
@@ -2025,6 +2007,7 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
     // Make sure that onPrepareOptionsMenu() will be called
     invalidateOptionsMenu();
     
+    setImmersiveMode(false);
     if (isHoneyComb() && !isIcecream())
     {
       showActionBar();
@@ -2326,6 +2309,7 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
     mRecentItemsListAdapter.refresh();
     mRecentItems.setVisibility(View.VISIBLE);
     mButtonsContainer.setVisibility(View.INVISIBLE);
+    showActionBar();
   }
 
 
@@ -2333,6 +2317,7 @@ public class ComicViewerActivity extends ExtendedActivity implements OnGestureLi
   {
     mRecentItems.setVisibility(View.GONE);
     mButtonsContainer.setVisibility(View.VISIBLE);
+    hideActionBar();
   }
   
   
