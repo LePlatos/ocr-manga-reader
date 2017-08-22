@@ -64,6 +64,7 @@
     <string name="sd_browser_open">OPEN</string>
     <string name="sd_browser_recent">RECENT</string>
     <string name="screen_browser_go">Go</string>
+	<string name="sd_browser_storage">Storage</string>
 
     <!-- Preferences -->
 

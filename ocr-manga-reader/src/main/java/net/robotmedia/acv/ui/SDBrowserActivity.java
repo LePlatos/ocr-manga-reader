@@ -27,6 +27,9 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
@@ -204,6 +207,24 @@ public class SDBrowserActivity extends TabActivity
     }
   }
 
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.browser_menu, menu);
+    return true;
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle item selection
+    switch (item.getItemId()) {
+        case R.id.item_sd_browser_storage:
+            changeDirectory(Environment.getExternalStorageDirectory());
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
+  }
 
   private void changeDirectory(File directory)
   {
